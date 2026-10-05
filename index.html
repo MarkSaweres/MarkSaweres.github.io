@@ -4,85 +4,253 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mark Saweres</title>
-<meta name="description" content="Mark Saweres: systems administrator in the San Francisco Bay Area who builds automation, integrations, and apps.">
+<meta name="description" content="Mark Saweres: systems administrator in the San Francisco Bay Area who builds automation, integrations, and internal apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fbfaf8;--card:#ffffff;--text:#1d1f23;--muted:#5d636e;--line:#e6e3de;--accent:#2f5bd3;--chip:#eef1f8}
-@media (prefers-color-scheme:dark){:root{--bg:#121417;--card:#1a1d22;--text:#e8e9ec;--muted:#a3a9b4;--line:#2a2e35;--accent:#8aa8ff;--chip:#232833}}
+:root{
+  --bg:#f7f6f3;--surface:#ffffff;--text:#17191d;--muted:#5b616c;--faint:#8a909a;
+  --line:#e4e1db;--accent:#2b59d1;--accent-soft:#e8eefc;--chip:#eef0f4;--on-accent:#ffffff;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0f1114;--surface:#171a1f;--text:#e9eaed;--muted:#a4aab4;--faint:#7c838e;
+  --line:#272c34;--accent:#8fabff;--accent-soft:#1d2840;--chip:#232831;--on-accent:#0f1114;
+}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-main{max-width:860px;margin:0 auto;padding:56px 20px 72px}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-h1{font-size:2.3rem;line-height:1.15;margin:0 0 6px;letter-spacing:-.02em}
-.role{font-size:1.1rem;color:var(--muted);margin:0 0 18px}
-.intro{font-size:1.06rem;max-width:680px;margin:0 0 20px}
-.links{display:flex;flex-wrap:wrap;gap:10px;margin:0}
-.links a{border:1px solid var(--line);background:var(--card);padding:7px 14px;border-radius:999px;font-size:.93rem;color:var(--text)}
-.links a:hover{border-color:var(--accent);text-decoration:none}
-h2{font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:56px 0 16px;font-weight:600}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px 16px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .brand{font-weight:700;color:var(--text);letter-spacing:-.01em}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:.92rem}
+nav ul a{color:var(--muted)}nav ul a:hover{color:var(--text);text-decoration:none}
+
+.hero{padding:72px 0 40px}
+.eyebrow{font-size:.85rem;font-weight:600;color:var(--accent);letter-spacing:.02em;margin:0 0 14px}
+h1{font-size:clamp(2.1rem,5vw,3.1rem);line-height:1.1;margin:0 0 18px;letter-spacing:-.03em;font-weight:700;max-width:800px}
+.lede{font-size:1.13rem;color:var(--muted);max-width:660px;margin:0 0 26px}
+.lede b{color:var(--text);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;padding:10px 18px;border-radius:10px;font-weight:600;font-size:.94rem;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+.btn:hover{border-color:var(--accent);text-decoration:none}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:44px 0 0}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px}
+.stat .num{font-size:1.9rem;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.stat .lbl{font-size:.86rem;color:var(--muted);margin-top:6px;line-height:1.4}
+
+section{padding:56px 0 8px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:22px}
+h2{font-size:1.5rem;letter-spacing:-.02em;margin:0}
+.sec-head p{margin:0;color:var(--muted);font-size:.95rem}
+
+.case{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:30px;margin-bottom:18px;display:grid;grid-template-columns:240px 1fr;gap:30px}
+.case .meta h3{font-size:1.25rem;line-height:1.25;margin:0 0 8px;letter-spacing:-.015em}
+.case .meta .ctx{color:var(--muted);font-size:.9rem;margin:0 0 16px}
+.case .result{background:var(--accent-soft);border-radius:12px;padding:14px 14px 12px}
+.case .result .num{font-size:1.6rem;font-weight:700;letter-spacing:-.02em;line-height:1.1;color:var(--accent)}
+.case .result .lbl{font-size:.84rem;color:var(--muted);margin-top:4px;line-height:1.4}
+.case .body h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin:0 0 6px;font-weight:600}
+.case .body p{margin:0 0 18px}
+.case .body ul{margin:0 0 18px;padding-left:18px}
+.case .body li{margin-bottom:6px}
+.case .body > :last-child{margin-bottom:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tags span{background:var(--chip);border-radius:6px;padding:3px 9px;font-size:.78rem;font-weight:500}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.grid.pairs{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column}
 .card h3{font-size:1.02rem;margin:0 0 6px;line-height:1.3}
-.card p{margin:0 0 10px;color:var(--muted);font-size:.95rem}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.tags span{background:var(--chip);border-radius:6px;padding:2px 8px;font-size:.78rem;color:var(--text)}
-.card .more{font-size:.9rem;font-weight:500}
-.skills{display:grid;grid-template-columns:170px 1fr;gap:8px 18px;font-size:.96rem}
-.skills dt{color:var(--muted)}.skills dd{margin:0}
-.timeline p{margin:0 0 12px}.timeline b{font-weight:600}.timeline .when{color:var(--muted);font-size:.92rem}
-footer{margin-top:60px;color:var(--muted);font-size:.86rem;border-top:1px solid var(--line);padding-top:18px}
-@media (max-width:560px){h1{font-size:1.9rem}main{padding:36px 16px 56px}.skills{grid-template-columns:1fr;gap:2px}.skills dd{margin-bottom:10px}}
+.card p{margin:0;color:var(--muted);font-size:.94rem}
+.card .tags{margin-top:auto;padding-top:14px}
+.card .more{margin-top:12px;font-size:.9rem;font-weight:600}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.panel h3{font-size:1rem;margin:0 0 14px}
+dl{margin:0;display:grid;grid-template-columns:130px 1fr;gap:10px 14px;font-size:.93rem}
+dt{color:var(--muted)}dd{margin:0}
+.exp{list-style:none;margin:0;padding:0}
+.exp li{padding:0 0 14px;margin:0 0 14px;border-bottom:1px solid var(--line)}
+.exp li:last-child{border:0;margin:0;padding:0}
+.exp b{display:block;font-weight:600}
+.exp span{color:var(--muted);font-size:.9rem}
+
+footer{margin:64px 0 0;padding:28px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media (max-width:820px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .case{grid-template-columns:1fr;gap:18px;padding:22px}
+  .two{grid-template-columns:1fr}
+}
+@media (max-width:640px){.grid.pairs{grid-template-columns:1fr}}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  nav ul{gap:14px;font-size:.86rem}
+  nav ul li.hide-sm{display:none}
+  .hero{padding:44px 0 24px}
+  .stat{padding:14px}
+  .stat .num{font-size:1.5rem}
+  dl{grid-template-columns:1fr;gap:2px}
+  dd{margin-bottom:10px}
+  .sec-head{flex-direction:column;gap:4px}
+}
 </style>
 </head>
 <body>
-<main>
-<header>
-<h1>Mark Saweres</h1>
-<p class="role">Systems Administrator · Automation and internal tools · San Francisco Bay Area</p>
-<p class="intro">I run identity, devices, and SaaS for client organizations at a managed service provider, then automate the work behind the tickets. I build integrations against Microsoft Graph and REST APIs, Power Platform apps used by hundreds of people, and side projects in Python and C#. B.S. in Software Engineering from San Jose State.</p>
-<p class="links">
-<a href="mailto:marksaweres1@gmail.com">Email</a>
-<a href="https://www.linkedin.com/in/mark-saweres-173817172">LinkedIn</a>
-<a href="https://github.com/MarkSaweres">GitHub</a>
-</p>
-</header>
 
-<h2>Work highlights</h2>
-<div class="grid">
-<div class="card"><h3>Phishing-resistant sign-in</h3><p>Set up Okta Device Trust across a Mac and Windows fleet with Okta as the SCEP certificate authority, then enforced YubiKey FIDO2 keys through Okta sign-on policies, Entra Conditional Access, and Google Workspace.</p><div class="tags"><span>Okta</span><span>FIDO2</span><span>Intune</span><span>Entra ID</span></div></div>
-<div class="card"><h3>Access that follows the job</h3><p>Built a sync that pulls about 3,170 employee records from an HR system's REST API and assigns Entra ID groups by job title and status, removing leavers automatically. App-only Graph auth, retry on throttling, logging.</p><div class="tags"><span>PowerShell</span><span>Microsoft Graph</span><span>REST APIs</span></div></div>
-<div class="card"><h3>Facilities management app</h3><p>Power Apps app over SharePoint planned for 600+ users, with role-based access resolved from Entra groups, a Python HR sync using least-privilege Graph auth that fails closed on bad data, and compliance reminders. Demoed live to VPs.</p><div class="tags"><span>Power Apps</span><span>Power Automate</span><span>Python</span><span>Dataverse</span></div></div>
-<div class="card"><h3>Acquisition cutover</h3><p>Packaged 60+ Intune apps from many different vendors in under two weeks for an acquired team, each tested for silent install and uninstall, and handed security findings with proven fixes to the client's security team.</p><div class="tags"><span>Intune</span><span>Autopilot</span><span>PowerShell</span></div></div>
-<div class="card"><h3>SharePoint migration toolkit</h3><p>Built a config-driven PnP PowerShell toolkit to move about 63 classic SharePoint areas to modern hub sites, after discovery found about 19,600 items. Recovered a production library and verified all 954 items.</p><div class="tags"><span>SharePoint</span><span>PnP PowerShell</span></div></div>
-<div class="card"><h3>Endpoint security rollout</h3><p>Moved a client fleet from Trend Micro to SentinelOne, packaged Twingate and Cisco Secure Client for macOS and Windows, and fixed a fleet-wide false install failure along the way.</p><div class="tags"><span>SentinelOne</span><span>Twingate</span><span>macOS</span></div></div>
-<div class="card"><h3>Incident response</h3><p>Caught a calendar-invite phishing attack, cut off the attacker's sessions, enforced 2-step verification, and traced two attacker IPs through the audit logs.</p><div class="tags"><span>Google Workspace</span><span>Security</span></div></div>
-<div class="card"><h3>Case management app</h3><p>Canvas app with Dev and Prod environments and solution-based releases, used by 11 career navigators mentoring 150+ apprentices.</p><div class="tags"><span>Power Apps</span><span>ALM</span><span>SharePoint</span></div></div>
-</div>
+<nav><div class="wrap">
+  <a class="brand" href="#top">Mark Saweres</a>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li class="hide-sm"><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
 
-<h2>Code projects</h2>
-<div class="grid">
-<div class="card"><h3>AI Shorts pipeline</h3><p>Python pipeline that writes, narrates, edits, and uploads a YouTube Short every day using the Groq LLM API, text-to-speech, Pexels, ffmpeg, and the YouTube Data API with OAuth. Runs on GitHub Actions.</p><div class="tags"><span>Python</span><span>LLM APIs</span><span>GitHub Actions</span></div><p></p><a class="more" href="https://github.com/MarkSaweres/content-uploader">View code →</a></div>
-<div class="card"><h3>Plated</h3><p>.NET MAUI app for Android and iOS that looks up license plates, with Firebase Auth, Firestore, and on-device OCR. In progress.</p><div class="tags"><span>C#</span><span>.NET MAUI</span><span>Firebase</span></div><p></p><a class="more" href="https://github.com/MarkSaweres/Plated">View code →</a></div>
-<div class="card"><h3>Starbucks ordering system</h3><p>Spring Boot REST API with MySQL behind a Kong API gateway and HAProxy, deployed from Docker Compose to Google Kubernetes Engine.</p><div class="tags"><span>Java</span><span>Spring Boot</span><span>Kubernetes</span></div><p></p><a class="more" href="https://github.com/MarkSaweres/Starbucks">View code →</a></div>
-<div class="card"><h3>Projectile detection</h3><p>Raspberry Pi and OpenCV prototype that tracks a target object in a live camera feed, built for the senior project.</p><div class="tags"><span>Python</span><span>OpenCV</span><span>Raspberry Pi</span></div><p></p><a class="more" href="https://github.com/MarkSaweres/DIPS">View code →</a></div>
-</div>
+<header class="hero" id="top"><div class="wrap">
+  <p class="eyebrow">Systems Administrator · San Francisco Bay Area</p>
+  <h1>I run IT for organizations, then automate the work behind the tickets.</h1>
+  <p class="lede">At a managed service provider I own <b>identity, devices, and SaaS</b> for client organizations, and I build the <b>integrations, Power Platform apps, and scripts</b> that replace manual work. B.S. in Software Engineering from San Jose State.</p>
+  <div class="cta">
+    <a class="btn primary" href="#work">See my work</a>
+    <a class="btn" href="https://github.com/MarkSaweres">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/mark-saweres-173817172">LinkedIn</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="num">60+</div><div class="lbl">Intune apps packaged from many vendors in under two weeks</div></div>
+    <div class="stat"><div class="num">600+</div><div class="lbl">users a Power Apps facilities app was built for</div></div>
+    <div class="stat"><div class="num">3,170</div><div class="lbl">employee records synced to access groups per run</div></div>
+    <div class="stat"><div class="num">19,600</div><div class="lbl">SharePoint items found in a migration discovery</div></div>
+  </div>
+</div></header>
 
-<h2>Skills</h2>
-<dl class="skills">
-<dt>Identity and SaaS</dt><dd>Okta, Entra ID, Google Workspace, Microsoft 365, Slack, Jira, Confluence, Zoom</dd>
-<dt>Devices and security</dt><dd>Intune, Autopilot, macOS, Windows, iOS, SentinelOne, Microsoft Defender, Twingate, Cisco Meraki</dd>
-<dt>Automation</dt><dd>Python, PowerShell, Microsoft Graph, REST APIs, Power Automate, Power Apps, Zapier, Claude Code</dd>
-<dt>Software</dt><dd>C#, Java, JavaScript, SQL, React, Spring Boot, Docker, Kubernetes, Git, GitHub Actions</dd>
-</dl>
+<section id="work"><div class="wrap">
+  <div class="sec-head"><h2>Selected work</h2><p>Client names are left out on purpose.</p></div>
 
-<h2>Experience</h2>
-<div class="timeline">
-<p><b>System Administrator</b>, PC Professional, Oakland <span class="when">· 2024 to present</span></p>
-<p><b>Software Engineer Intern</b>, Trvlst, San Francisco <span class="when">· 2023 to 2024</span></p>
-<p><b>IT Specialist</b>, All Care Family Dental <span class="when">· 2023</span></p>
-<p><b>B.S. Software Engineering</b>, San Jose State University <span class="when">· Fundamentals of Cybersecurity Certificate</span></p>
-</div>
+  <article class="case">
+    <div class="meta">
+      <h3>Facilities management app</h3>
+      <p class="ctx">Power Apps · Nonprofit client</p>
+      <div class="result"><div class="num">600+</div><div class="lbl">users covered without per-user premium licenses</div></div>
+      <div class="tags"><span>Power Apps</span><span>Power Automate</span><span>Microsoft Graph</span><span>Python</span><span>Entra ID</span></div>
+    </div>
+    <div class="body">
+      <h4>Problem</h4>
+      <p>Facilities data lived in flat SharePoint lists. Staff needed one place for compliance dates, tickets, and emergency documents, where each person sees only their own facilities and role, without buying premium licenses for 600+ people.</p>
+      <h4>What I built</h4>
+      <ul>
+        <li>A canvas app with five roles, resolved from Entra security groups through a flow that calls Microsoft Graph.</li>
+        <li>A broker pattern: flows run under a service account, so users never get direct access to the lists, and a mapping list scopes each person to their facilities.</li>
+        <li>A Python service that syncs the HR roster into SharePoint with app-only Graph auth scoped to one site. It upserts records, logs every run, and fails closed if the roster comes back empty.</li>
+        <li>A compliance tab tracking 15 expiration dates with 30, 60, and 90-day reminders, plus audit logging on sensitive access codes.</li>
+        <li>Separate dev, demo, and prod environments with managed solutions and a custom security role.</li>
+      </ul>
+      <h4>Result</h4>
+      <p>The Python sync replaced a per-user premium flow, avoiding premium licensing for 600+ users. I demoed the app live to the organization's VPs, and a five-phase rollout runs from admins to all staff.</p>
+    </div>
+  </article>
 
-<footer>Client names are left out on purpose. Happy to walk through any of this work in detail.</footer>
-</main>
+  <article class="case">
+    <div class="meta">
+      <h3>Access that follows the job</h3>
+      <p class="ctx">Automation · HR system to Entra ID</p>
+      <div class="result"><div class="num">3,170</div><div class="lbl">employee records processed per full sync</div></div>
+      <div class="tags"><span>PowerShell</span><span>Microsoft Graph</span><span>REST APIs</span><span>Entra ID</span></div>
+    </div>
+    <div class="body">
+      <h4>Problem</h4>
+      <p>Purchasing roles had to be changed by hand whenever someone was hired, changed jobs, or left, so access depended on a ticket getting filed and worked.</p>
+      <h4>What I built</h4>
+      <ul>
+        <li>A sync that pulls the employee roster from the HR system's REST API and assigns each person to Entra ID security groups by job title, status, and supervisor.</li>
+        <li>Those groups drive purchasing roles, so the right access lands automatically, and inactive or terminated staff are removed on the next run.</li>
+        <li>App-only Microsoft Graph auth through a dedicated Entra app registration, retry with backoff when Graph throttles, an exception list for HR edge cases, and log rotation.</li>
+      </ul>
+      <h4>Result</h4>
+      <p>Joiners, movers, and leavers are handled by the sync instead of tickets, so purchasing access stays in step with the HR record.</p>
+    </div>
+  </article>
+
+  <article class="case">
+    <div class="meta">
+      <h3>Acquisition cutover</h3>
+      <p class="ctx">Intune · Acquired team moving tenants</p>
+      <div class="result"><div class="num">60+ apps</div><div class="lbl">from many vendors, packaged and tested in under two weeks</div></div>
+      <div class="tags"><span>Intune</span><span>Autopilot</span><span>PowerShell</span><span>PIM</span></div>
+    </div>
+    <div class="body">
+      <h4>Problem</h4>
+      <p>A team of 20 from an acquired company was moving into the parent company's Microsoft 365 tenant on a fixed cutover date, with a 94-entry software list of specialist tools, drivers, and utilities that all had to install silently through Intune.</p>
+      <h4>What I built</h4>
+      <ul>
+        <li>A PowerShell toolkit that detects each installer's engine and builds Intune packages, with install, uninstall, and detection rules, from a single JSON manifest.</li>
+        <li>Silent installs for MSI, InstallShield, NSIS, Inno, WiX bundles, self-extractors, portable apps, and driver INFs, consolidating component rows (for example, 20 rows from one vendor into 6 apps).</li>
+        <li>Every app tested through Company Portal on an Autopilot test machine for silent install, launch, and silent uninstall, working under least-privilege PIM roles.</li>
+      </ul>
+      <h4>Result</h4>
+      <p>60+ apps covering 85 of the 94 entries were ready for Day 1. I also gave the client's security team findings with proven fixes: an attack surface reduction rule blocking plug-ins, a driver blocked by memory integrity with a supported replacement, and a signed driver that only installed after I imported the publisher certificate.</p>
+    </div>
+  </article>
+</div></section>
+
+<section id="more"><div class="wrap">
+  <div class="sec-head"><h2>More work</h2></div>
+  <div class="grid">
+    <div class="card"><h3>Phishing-resistant sign-in</h3><p>Set up Okta Device Trust across Mac and Windows with Okta as the SCEP certificate authority, then enforced YubiKey FIDO2 keys through Okta sign-on policies, Entra Conditional Access, and Google Workspace.</p><div class="tags"><span>Okta</span><span>FIDO2</span><span>Intune</span></div></div>
+    <div class="card"><h3>SharePoint migration toolkit</h3><p>Built a config-driven PnP PowerShell toolkit to move about 63 classic areas to modern hub sites. Recovered a production library after an accidental move and verified all 954 items.</p><div class="tags"><span>SharePoint</span><span>PnP PowerShell</span></div></div>
+    <div class="card"><h3>Endpoint security rollout</h3><p>Moved a client fleet from Trend Micro to SentinelOne, packaged Twingate and Cisco Secure Client for macOS and Windows, and fixed a fleet-wide false install failure.</p><div class="tags"><span>SentinelOne</span><span>Twingate</span><span>macOS</span></div></div>
+    <div class="card"><h3>Incident response</h3><p>Caught a calendar-invite phishing attack, cut off the attacker's sessions, enforced 2-step verification, and traced two attacker IPs through the audit logs.</p><div class="tags"><span>Google Workspace</span><span>Security</span></div></div>
+    <div class="card"><h3>Case management app</h3><p>Canvas app with dev and prod environments and solution-based releases, used by 11 career navigators mentoring 150+ apprentices.</p><div class="tags"><span>Power Apps</span><span>ALM</span></div></div>
+    <div class="card"><h3>Conflicts portal</h3><p>Built and maintain a conflict-checking app for a law firm on Dataverse, including a migration to new tables loaded through a dataflow.</p><div class="tags"><span>Power Apps</span><span>Dataverse</span></div></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <div class="sec-head"><h2>Code projects</h2><p>Personal and school work on GitHub.</p></div>
+  <div class="grid pairs">
+    <div class="card"><h3>AI Shorts pipeline</h3><p>Writes, narrates, edits, and uploads a YouTube Short every day using the Groq LLM API, text-to-speech, Pexels, ffmpeg, and the YouTube Data API with OAuth. Runs on GitHub Actions.</p><div class="tags"><span>Python</span><span>LLM APIs</span><span>GitHub Actions</span></div><a class="more" href="https://github.com/MarkSaweres/content-uploader">View code →</a></div>
+    <div class="card"><h3>Plated</h3><p>.NET MAUI app for Android and iOS that looks up license plates, with Firebase Auth, Firestore, and on-device OCR. In progress.</p><div class="tags"><span>C#</span><span>.NET MAUI</span><span>Firebase</span></div><a class="more" href="https://github.com/MarkSaweres/Plated">View code →</a></div>
+    <div class="card"><h3>Starbucks ordering system</h3><p>Spring Boot REST API with MySQL behind a Kong API gateway and HAProxy, deployed from Docker Compose to Google Kubernetes Engine.</p><div class="tags"><span>Java</span><span>Spring Boot</span><span>Kubernetes</span></div><a class="more" href="https://github.com/MarkSaweres/Starbucks">View code →</a></div>
+    <div class="card"><h3>Projectile detection</h3><p>Raspberry Pi and OpenCV prototype that tracks a target object in a live camera feed, built for my senior project.</p><div class="tags"><span>Python</span><span>OpenCV</span><span>Raspberry Pi</span></div><a class="more" href="https://github.com/MarkSaweres/DIPS">View code →</a></div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="two">
+    <div class="panel">
+      <h3>Skills</h3>
+      <dl>
+        <dt>Identity and SaaS</dt><dd>Okta, Entra ID, Google Workspace, Microsoft 365, Slack, Jira, Confluence, Zoom</dd>
+        <dt>Devices and security</dt><dd>Intune, Autopilot, macOS, Windows, iOS, SentinelOne, Defender, Twingate, Cisco Meraki</dd>
+        <dt>Automation</dt><dd>Python, PowerShell, Microsoft Graph, REST APIs, Power Automate, Power Apps, Zapier, Claude Code</dd>
+        <dt>Software</dt><dd>C#, Java, JavaScript, SQL, React, Spring Boot, Docker, Kubernetes, Git, GitHub Actions</dd>
+      </dl>
+    </div>
+    <div class="panel">
+      <h3>Experience</h3>
+      <ul class="exp">
+        <li><b>System Administrator, PC Professional</b><span>Oakland · 2024 to present</span></li>
+        <li><b>Software Engineer Intern, Trvlst</b><span>San Francisco · 2023 to 2024</span></li>
+        <li><b>IT Specialist, All Care Family Dental</b><span>Pittsburg, CA · 2023</span></li>
+        <li><b>B.S. Software Engineering, San Jose State University</b><span>Fundamentals of Cybersecurity Certificate</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <span>Happy to walk through any of this work in detail.</span>
+  <span><a href="mailto:marksaweres1@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/mark-saweres-173817172">LinkedIn</a> · <a href="https://github.com/MarkSaweres">GitHub</a></span>
+</div></footer>
+
 </body>
 </html>
