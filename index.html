@@ -77,6 +77,12 @@ h2{font-size:1.5rem;letter-spacing:-.02em;margin:0}
 .dg .ah{fill:var(--faint)}
 .dg .zone{fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:5 4;opacity:.75}
 .dg .zl{fill:var(--accent);font-size:11px;font-weight:600}
+.shots{grid-column:1/-1;margin:4px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+.shots .g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.shots .g a:first-child{grid-column:1/-1}
+.shots img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.shots figcaption{font-size:.88rem;color:var(--muted);margin-top:12px}
+@media (max-width:640px){.shots .g{grid-template-columns:1fr}}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .tags span{background:var(--chip);border-radius:6px;padding:3px 9px;font-size:.78rem;font-weight:500}
 
@@ -223,6 +229,36 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   
     <figure class="fig"><p class="swipe">Swipe sideways to see the whole diagram →</p><div class="scroll"><svg class="dg" viewBox="0 0 900 250" role="img" aria-label="A JSON manifest feeds the packaging toolkit, which builds Intune apps. Each app is installed from Company Portal on an Autopilot test PC. Passing apps are ready for Day 1; failing apps are fixed and rebuilt, or reported to the security team as a finding."><defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker></defs><rect class="n" x="20" y="50" width="130" height="56" rx="10"/><text class="t" x="85.0" y="75.0" text-anchor="middle">JSON manifest</text><text class="s" x="85.0" y="92.0" text-anchor="middle">94-entry list</text><rect class="k" x="205" y="50" width="175" height="56" rx="10"/><text class="t" x="292.5" y="75.0" text-anchor="middle">Packaging toolkit</text><text class="s" x="292.5" y="92.0" text-anchor="middle">detects installer engine</text><rect class="n" x="440" y="50" width="130" height="56" rx="10"/><text class="t" x="505.0" y="75.0" text-anchor="middle">Intune</text><text class="s" x="505.0" y="92.0" text-anchor="middle">app + detection rule</text><rect class="n" x="630" y="50" width="150" height="56" rx="10"/><text class="t" x="705.0" y="75.0" text-anchor="middle">Autopilot test PC</text><text class="s" x="705.0" y="92.0" text-anchor="middle">install, launch, uninstall</text><rect class="n" x="820" y="50" width="70" height="56" rx="10"/><text class="t" x="855.0" y="82.5" text-anchor="middle">Day 1</text><rect class="n" x="440" y="176" width="190" height="56" rx="10"/><text class="t" x="535.0" y="201.0" text-anchor="middle">Fix and retest</text><text class="s" x="535.0" y="218.0" text-anchor="middle">or report a finding</text><path class="e" d="M150,78 H203" marker-end="url(#a3)"/><text class="el" x="176" y="70" text-anchor="middle">apps</text><path class="e" d="M380,78 H438" marker-end="url(#a3)"/><text class="el" x="409" y="70" text-anchor="middle">uploads</text><path class="e" d="M570,78 H628" marker-end="url(#a3)"/><text class="el" x="599" y="70" text-anchor="middle">deploys</text><path class="e" d="M780,78 H818" marker-end="url(#a3)"/><text class="el" x="799" y="70" text-anchor="middle">pass</text><path class="e" d="M705,106 V204 H632" marker-end="url(#a3)"/><text class="el" x="715" y="160" text-anchor="start">fails</text><path class="e" d="M440,204 H292 V108" marker-end="url(#a3)"/><text class="el" x="366" y="196" text-anchor="middle">rebuild</text></svg></div><figcaption>Every package went through the same loop: build from the manifest, deploy through Intune, prove install, launch, and uninstall on a test machine, and fix or escalate anything that failed.</figcaption></figure>
   </article>
+  <article class="case">
+    <div class="meta">
+      <h3>Case management app</h3>
+      <p class="ctx">Power Apps · Apprenticeship program</p>
+      <div class="result"><div class="num">150+</div><div class="lbl">apprentices tracked by 11 career navigators</div></div>
+      <div class="tags"><span>Power Apps</span><span>SharePoint</span><span>Entra ID</span><span>ALM</span></div>
+    </div>
+    <div class="body">
+      <h4>Problem</h4>
+      <p>A program with 11 career navigators needed one place to track 150+ apprentices: their status, meeting notes, and course progress, with a meeting summary that could be shared with the program's corporate partner.</p>
+      <h4>What I built</h4>
+      <ul>
+        <li>A six-screen canvas app over four SharePoint lists, starting from a roster that filters by navigator and status and flags each apprentice red, yellow, or green.</li>
+        <li>An apprentice page that brings together meeting notes and course enrollments, with dated progress updates for each course.</li>
+        <li>Structured meeting notes with separate personal, academic, and professional updates, plus a summary meant for the partner.</li>
+        <li>Dev and Prod environments with managed solution releases. I chose solution export and import over Pipelines, because Pipelines needs Managed Environments, which would have meant a standalone Power Apps license for every user.</li>
+        <li>Access through Entra security groups, verified on partner-issued laptops.</li>
+      </ul>
+      <h4>Result</h4>
+      <p>The app went live in production in late September 2026 for the program's career navigators.</p>
+    </div>
+    <figure class="shots">
+      <div class="g">
+        <a href="img/case-mgmt-list.webp"><img src="img/case-mgmt-list.webp" width="1382" height="775" loading="lazy" alt="Apprentice roster with search, navigator and status filters, and red, yellow, and green status bars"></a>
+        <a href="img/case-mgmt-apprentice.webp"><img src="img/case-mgmt-apprentice.webp" width="1384" height="778" loading="lazy" alt="Apprentice page showing meeting notes and course enrollments"></a>
+        <a href="img/case-mgmt-meeting-note.webp"><img src="img/case-mgmt-meeting-note.webp" width="1385" height="776" loading="lazy" alt="Meeting note form with summary, personal, academic, and professional updates"></a>
+      </div>
+      <figcaption>Real screens from the app. Apprentice names, notes, and client branding are blurred.</figcaption>
+    </figure>
+  </article>
 </div></section>
 
 <section id="more"><div class="wrap">
@@ -232,7 +268,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="card"><h3>SharePoint migration toolkit</h3><p>Built a config-driven PnP PowerShell toolkit to move about 63 classic areas to modern hub sites. Recovered a production library after an accidental move and verified all 954 items.</p><div class="tags"><span>SharePoint</span><span>PnP PowerShell</span></div></div>
     <div class="card"><h3>Endpoint security rollout</h3><p>Moved a client fleet from Trend Micro to SentinelOne, packaged Twingate and Cisco Secure Client for macOS and Windows, and fixed a fleet-wide false install failure.</p><div class="tags"><span>SentinelOne</span><span>Twingate</span><span>macOS</span></div></div>
     <div class="card"><h3>Incident response</h3><p>Caught a calendar-invite phishing attack, cut off the attacker's sessions, enforced 2-step verification, and traced two attacker IPs through the audit logs.</p><div class="tags"><span>Google Workspace</span><span>Security</span></div></div>
-    <div class="card"><h3>Case management app</h3><p>Canvas app with dev and prod environments and solution-based releases, used by 11 career navigators mentoring 150+ apprentices.</p><div class="tags"><span>Power Apps</span><span>ALM</span></div></div>
     <div class="card"><h3>Conflicts portal</h3><p>Built and maintain a conflict-checking app for a law firm on Dataverse, including a migration to new tables loaded through a dataflow.</p><div class="tags"><span>Power Apps</span><span>Dataverse</span></div></div>
   </div>
 </div></section>
