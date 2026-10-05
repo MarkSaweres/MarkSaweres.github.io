@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mark Saweres</title>
+<meta name="description" content="Mark Saweres: systems administrator in the San Francisco Bay Area who builds automation, integrations, and apps.">
+<style>
+:root{--bg:#fbfaf8;--card:#ffffff;--text:#1d1f23;--muted:#5d636e;--line:#e6e3de;--accent:#2f5bd3;--chip:#eef1f8}
+@media (prefers-color-scheme:dark){:root{--bg:#121417;--card:#1a1d22;--text:#e8e9ec;--muted:#a3a9b4;--line:#2a2e35;--accent:#8aa8ff;--chip:#232833}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+main{max-width:860px;margin:0 auto;padding:56px 20px 72px}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+h1{font-size:2.3rem;line-height:1.15;margin:0 0 6px;letter-spacing:-.02em}
+.role{font-size:1.1rem;color:var(--muted);margin:0 0 18px}
+.intro{font-size:1.06rem;max-width:680px;margin:0 0 20px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin:0}
+.links a{border:1px solid var(--line);background:var(--card);padding:7px 14px;border-radius:999px;font-size:.93rem;color:var(--text)}
+.links a:hover{border-color:var(--accent);text-decoration:none}
+h2{font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:56px 0 16px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px 16px}
+.card h3{font-size:1.02rem;margin:0 0 6px;line-height:1.3}
+.card p{margin:0 0 10px;color:var(--muted);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{background:var(--chip);border-radius:6px;padding:2px 8px;font-size:.78rem;color:var(--text)}
+.card .more{font-size:.9rem;font-weight:500}
+.skills{display:grid;grid-template-columns:170px 1fr;gap:8px 18px;font-size:.96rem}
+.skills dt{color:var(--muted)}.skills dd{margin:0}
+.timeline p{margin:0 0 12px}.timeline b{font-weight:600}.timeline .when{color:var(--muted);font-size:.92rem}
+footer{margin-top:60px;color:var(--muted);font-size:.86rem;border-top:1px solid var(--line);padding-top:18px}
+@media (max-width:560px){h1{font-size:1.9rem}main{padding:36px 16px 56px}.skills{grid-template-columns:1fr;gap:2px}.skills dd{margin-bottom:10px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Mark Saweres</h1>
+<p class="role">Systems Administrator · Automation and internal tools · San Francisco Bay Area</p>
+<p class="intro">I run identity, devices, and SaaS for client organizations at a managed service provider, then automate the work behind the tickets. I build integrations against Microsoft Graph and REST APIs, Power Platform apps used by hundreds of people, and side projects in Python and C#. B.S. in Software Engineering from San Jose State.</p>
+<p class="links">
+<a href="mailto:marksaweres1@gmail.com">Email</a>
+<a href="https://www.linkedin.com/in/mark-saweres-173817172">LinkedIn</a>
+<a href="https://github.com/MarkSaweres">GitHub</a>
+</p>
+</header>
+
+<h2>Work highlights</h2>
+<div class="grid">
+<div class="card"><h3>Phishing-resistant sign-in</h3><p>Set up Okta Device Trust across a Mac and Windows fleet with Okta as the SCEP certificate authority, then enforced YubiKey FIDO2 keys through Okta sign-on policies, Entra Conditional Access, and Google Workspace.</p><div class="tags"><span>Okta</span><span>FIDO2</span><span>Intune</span><span>Entra ID</span></div></div>
+<div class="card"><h3>Access that follows the job</h3><p>Built a sync that pulls about 3,170 employee records from an HR system's REST API and assigns Entra ID groups by job title and status, removing leavers automatically. App-only Graph auth, retry on throttling, logging.</p><div class="tags"><span>PowerShell</span><span>Microsoft Graph</span><span>REST APIs</span></div></div>
+<div class="card"><h3>Facilities management app</h3><p>Power Apps app over SharePoint planned for 600+ users, with role-based access resolved from Entra groups, a Python HR sync using least-privilege Graph auth that fails closed on bad data, and compliance reminders. Demoed live to VPs.</p><div class="tags"><span>Power Apps</span><span>Power Automate</span><span>Python</span><span>Dataverse</span></div></div>
+<div class="card"><h3>Acquisition cutover</h3><p>Packaged 60+ Intune apps from many different vendors in under two weeks for an acquired team, each tested for silent install and uninstall, and handed security findings with proven fixes to the client's security team.</p><div class="tags"><span>Intune</span><span>Autopilot</span><span>PowerShell</span></div></div>
+<div class="card"><h3>SharePoint migration toolkit</h3><p>Built a config-driven PnP PowerShell toolkit to move about 63 classic SharePoint areas to modern hub sites, after discovery found about 19,600 items. Recovered a production library and verified all 954 items.</p><div class="tags"><span>SharePoint</span><span>PnP PowerShell</span></div></div>
+<div class="card"><h3>Endpoint security rollout</h3><p>Moved a client fleet from Trend Micro to SentinelOne, packaged Twingate and Cisco Secure Client for macOS and Windows, and fixed a fleet-wide false install failure along the way.</p><div class="tags"><span>SentinelOne</span><span>Twingate</span><span>macOS</span></div></div>
+<div class="card"><h3>Incident response</h3><p>Caught a calendar-invite phishing attack, cut off the attacker's sessions, enforced 2-step verification, and traced two attacker IPs through the audit logs.</p><div class="tags"><span>Google Workspace</span><span>Security</span></div></div>
+<div class="card"><h3>Case management app</h3><p>Canvas app with Dev and Prod environments and solution-based releases, used by 11 career navigators mentoring 150+ apprentices.</p><div class="tags"><span>Power Apps</span><span>ALM</span><span>SharePoint</span></div></div>
+</div>
+
+<h2>Code projects</h2>
+<div class="grid">
+<div class="card"><h3>AI Shorts pipeline</h3><p>Python pipeline that writes, narrates, edits, and uploads a YouTube Short every day using the Groq LLM API, text-to-speech, Pexels, ffmpeg, and the YouTube Data API with OAuth. Runs on GitHub Actions.</p><div class="tags"><span>Python</span><span>LLM APIs</span><span>GitHub Actions</span></div><p></p><a class="more" href="https://github.com/MarkSaweres/content-uploader">View code →</a></div>
+<div class="card"><h3>Plated</h3><p>.NET MAUI app for Android and iOS that looks up license plates, with Firebase Auth, Firestore, and on-device OCR. In progress.</p><div class="tags"><span>C#</span><span>.NET MAUI</span><span>Firebase</span></div><p></p><a class="more" href="https://github.com/MarkSaweres/Plated">View code →</a></div>
+<div class="card"><h3>Starbucks ordering system</h3><p>Spring Boot REST API with MySQL behind a Kong API gateway and HAProxy, deployed from Docker Compose to Google Kubernetes Engine.</p><div class="tags"><span>Java</span><span>Spring Boot</span><span>Kubernetes</span></div><p></p><a class="more" href="https://github.com/MarkSaweres/Starbucks">View code →</a></div>
+<div class="card"><h3>Projectile detection</h3><p>Raspberry Pi and OpenCV prototype that tracks a target object in a live camera feed, built for the senior project.</p><div class="tags"><span>Python</span><span>OpenCV</span><span>Raspberry Pi</span></div><p></p><a class="more" href="https://github.com/MarkSaweres/DIPS">View code →</a></div>
+</div>
+
+<h2>Skills</h2>
+<dl class="skills">
+<dt>Identity and SaaS</dt><dd>Okta, Entra ID, Google Workspace, Microsoft 365, Slack, Jira, Confluence, Zoom</dd>
+<dt>Devices and security</dt><dd>Intune, Autopilot, macOS, Windows, iOS, SentinelOne, Microsoft Defender, Twingate, Cisco Meraki</dd>
+<dt>Automation</dt><dd>Python, PowerShell, Microsoft Graph, REST APIs, Power Automate, Power Apps, Zapier, Claude Code</dd>
+<dt>Software</dt><dd>C#, Java, JavaScript, SQL, React, Spring Boot, Docker, Kubernetes, Git, GitHub Actions</dd>
+</dl>
+
+<h2>Experience</h2>
+<div class="timeline">
+<p><b>System Administrator</b>, PC Professional, Oakland <span class="when">· 2024 to present</span></p>
+<p><b>Software Engineer Intern</b>, Trvlst, San Francisco <span class="when">· 2023 to 2024</span></p>
+<p><b>IT Specialist</b>, All Care Family Dental <span class="when">· 2023</span></p>
+<p><b>B.S. Software Engineering</b>, San Jose State University <span class="when">· Fundamentals of Cybersecurity Certificate</span></p>
+</div>
+
+<footer>Client names are left out on purpose. Happy to walk through any of this work in detail.</footer>
+</main>
+</body>
+</html>
