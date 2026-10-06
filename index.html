@@ -153,7 +153,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="stat"><div class="num">60+</div><div class="lbl">Intune apps packaged from many vendors in under two weeks</div></div>
     <div class="stat"><div class="num">600+</div><div class="lbl">person organization where my Power Apps facilities app is in production</div></div>
     <div class="stat"><div class="num">3,170</div><div class="lbl">employee records synced to access groups per run</div></div>
-    <div class="stat"><div class="num">19,600</div><div class="lbl">SharePoint items migrated from classic to modern sites</div></div>
+    <div class="stat"><div class="num">50+</div><div class="lbl">Macs and PCs moved to phishing-resistant YubiKey sign-in with Okta Device Trust</div></div>
   </div>
 </div></header>
 
@@ -196,7 +196,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <ul>
         <li>A sync that pulls the employee roster from the HR system's REST API and assigns each person to Entra ID security groups by job title, status, and supervisor.</li>
         <li>Those groups drive purchasing roles, so the right access lands automatically, and inactive or terminated staff are removed on the next run.</li>
-        <li>App-only Microsoft Graph auth through a dedicated Entra app registration, retry with backoff when Graph throttles, an exception list for HR edge cases, and log rotation.</li>
+        <li>App-only Microsoft Graph auth through a dedicated Entra app registration, retry with backoff when Graph throttles, and an exception list for HR edge cases.</li>
+        <li>A logging system that records every add, move, and removal on each run, with size-based rotation, so any access change can be traced back to the run that made it.</li>
       </ul>
       <h4>Result</h4>
       <p>Joiners, movers, and leavers are handled by the sync instead of tickets, so purchasing access stays in step with the HR record.</p>
@@ -280,11 +281,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <section id="projects"><div class="wrap">
   <div class="sec-head"><h2>Code projects</h2><p>Personal and school work on GitHub.</p></div>
-  <div class="grid pairs">
+  <div class="grid">
     <div class="card"><h3>AI Shorts pipeline</h3><p>Python pipeline that writes a story with an LLM API, narrates it with word-timed captions, adds stock footage, and uploads the finished Short to YouTube every day on a GitHub Actions schedule.</p><div class="tags"><span>Python</span><span>LLM APIs</span><span>YouTube API</span></div><a class="more" href="https://github.com/MarkSaweres/content-uploader">View code →</a></div>
     <div class="card"><h3>Plated</h3><p>.NET MAUI app for Android and iOS that looks up license plates, with Firebase Auth, Firestore, and on-device OCR. In progress.</p><div class="tags"><span>C#</span><span>.NET MAUI</span><span>Firebase</span></div><a class="more" href="https://github.com/MarkSaweres/Plated">View code →</a></div>
     <div class="card"><h3>Starbucks ordering system</h3><p>Spring Boot REST API with MySQL behind a Kong API gateway and HAProxy, deployed from Docker Compose to Google Kubernetes Engine.</p><div class="tags"><span>Java</span><span>Spring Boot</span><span>Kubernetes</span></div><a class="more" href="https://github.com/MarkSaweres/Starbucks">View code →</a></div>
-    <div class="card"><h3>Projectile detection</h3><p>Raspberry Pi and OpenCV prototype that tracks a target object in a live camera feed, built for my senior project.</p><div class="tags"><span>Python</span><span>OpenCV</span><span>Raspberry Pi</span></div><a class="more" href="https://github.com/MarkSaweres/DIPS">View code →</a></div>
   </div>
 </div></section>
 
@@ -305,7 +305,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <li><b>System Administrator, PC Professional</b><span>Oakland · 2024 to present</span></li>
         <li><b>Software Engineer Intern, Trvlst</b><span>San Francisco · 2023 to 2024</span></li>
         <li><b>IT Specialist, All Care Family Dental</b><span>Pittsburg, CA · 2023</span></li>
-        <li><b>B.S. Software Engineering, San Jose State University</b><span>Fundamentals of Cybersecurity Certificate</span></li>
+        <li><b>B.S. Software Engineering, San Jose State University</b><span>Fundamentals of Cybersecurity Certificate · Senior project: real-time object detection on a Raspberry Pi with Python and OpenCV</span></li>
       </ul>
     </div>
   </div>

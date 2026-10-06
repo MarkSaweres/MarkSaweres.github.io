@@ -189,7 +189,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <ul>
         <li>A sync that pulls the roster from the HR system's REST API and maps each employee to Entra ID security groups by job title, employment status, and supervisor.</li>
         <li>Reconciliation on every run: people who join, move, or leave are added, switched, or removed, so group membership matches the HR record.</li>
-        <li>App-only Microsoft Graph auth through a dedicated app registration, credentials kept out of the code, retry with backoff on throttling and server errors, and log rotation.</li>
+        <li>App-only Microsoft Graph auth through a dedicated app registration, credentials kept out of the code, and retry with backoff on throttling and server errors.</li>
+        <li>A logging system that records every add, move, and removal on each run, with size-based rotation, so any access change can be traced back to the run that made it.</li>
       </ul>
       <h4>Result</h4>
       <p>Joiners, movers, and leavers are handled by the sync instead of tickets, so purchasing access stays in step with HR.</p>
@@ -226,7 +227,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="card"><p class="kind">Work · Python</p><h3>Desktop tools for IT staff</h3><p>A new-hire onboarding app that fills document and Outlook email templates, and an email signature generator that runs in Docker. Packaged with PyInstaller and code signed through Azure Key Vault.</p><div class="tags"><span>Python</span><span>customtkinter</span><span>Docker</span></div></div>
     <div class="card"><p class="kind">School · Java</p><h3>Starbucks ordering system</h3><p>Spring Boot REST API with MySQL behind a Kong API gateway and HAProxy, deployed from Docker Compose to Google Kubernetes Engine.</p><div class="tags"><span>Java</span><span>Spring Boot</span><span>Kubernetes</span></div><a class="more" href="https://github.com/MarkSaweres/Starbucks">View code →</a></div>
     <div class="card"><p class="kind">School · QA</p><h3>Mobile test automation</h3><p>An automated QA suite for the Google Translate mobile app using Selenium and Appium.</p><div class="tags"><span>Selenium</span><span>Appium</span><span>QA</span></div></div>
-    <div class="card"><p class="kind">School · Python</p><h3>Projectile detection</h3><p>Raspberry Pi and OpenCV prototype that tracks a target object in a live camera feed, built for my senior project.</p><div class="tags"><span>Python</span><span>OpenCV</span><span>Raspberry Pi</span></div><a class="more" href="https://github.com/MarkSaweres/DIPS">View code →</a></div>
   </div>
 </div></section>
 
@@ -247,7 +247,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <li><b>System Administrator, PC Professional</b><span>Oakland · 2024 to present</span></li>
         <li><b>Software Engineer Intern, Trvlst</b><span>San Francisco · 2023 to 2024 · React Native</span></li>
         <li><b>IT Specialist, All Care Family Dental</b><span>Pittsburg, CA · 2023</span></li>
-        <li><b>B.S. Software Engineering, San Jose State University</b><span>Fundamentals of Cybersecurity Certificate</span></li>
+        <li><b>B.S. Software Engineering, San Jose State University</b><span>Fundamentals of Cybersecurity Certificate · Senior project: real-time object detection on a Raspberry Pi with Python and OpenCV</span></li>
       </ul>
     </div>
   </div>
