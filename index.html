@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mark Saweres</title>
-<meta name="description" content="Mark Saweres: systems administrator and software engineer in the San Francisco Bay Area. IT and software portfolios.">
+<meta name="description" content="Mark Saweres: systems administrator in the San Francisco Bay Area who builds automation, integrations, and internal apps.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -80,6 +80,7 @@ h2{font-size:1.5rem;letter-spacing:-.02em;margin:0}
 .shots{grid-column:1/-1;margin:4px 0 0;padding-top:24px;border-top:1px solid var(--line)}
 .shots .g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .shots .g a:first-child{grid-column:1/-1}
+.shots.pair .g a:first-child{grid-column:auto}
 .shots img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
 .shots figcaption{font-size:.88rem;color:var(--muted);margin-top:12px}
 @media (max-width:640px){.shots .g{grid-template-columns:1fr}}
@@ -125,30 +126,193 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   dd{margin-bottom:10px}
   .sec-head{flex-direction:column;gap:4px}
 }
-.hero.home{padding:96px 0 56px}
-.choose{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 0}
-.choice{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;color:var(--text)}
-.choice:hover{border-color:var(--accent);text-decoration:none}
-.choice h2{font-size:1.2rem;margin:0 0 8px}
-.choice p{margin:0 0 16px;color:var(--muted)}
-.choice span{margin-top:auto;font-weight:600;color:var(--accent)}
-@media (max-width:640px){.choose{grid-template-columns:1fr}.hero.home{padding:56px 0 32px}}
 </style>
 </head>
 <body>
 
-<header class="hero home" id="top"><div class="wrap">
-  <p class="eyebrow">San Francisco Bay Area</p>
-  <h1>Mark Saweres</h1>
-  <p class="lede">Systems administrator and software engineer. I run identity, devices, and Microsoft 365 for client organizations, and I write the code that automates that work.</p>
-  <div class="choose">
-    <a class="choice" href="sysadmin/"><h2>IT and systems administration</h2><p>Intune, identity, Microsoft 365, security, and Power Platform work for client organizations.</p><span>View IT portfolio →</span></a>
-    <a class="choice" href="software/"><h2>Software engineering</h2><p>Python, C#, and PowerShell projects: integrations, a mobile app, and an AI pipeline.</p><span>View software portfolio →</span></a>
+<nav><div class="wrap">
+  <a class="brand" href="#top">Mark Saweres</a>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li class="hide-sm"><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <p class="eyebrow">Systems Administrator · San Francisco Bay Area</p>
+  <h1>I run IT for organizations, then automate the work behind the tickets.</h1>
+  <p class="lede">At a managed service provider I own <b>identity, devices, and SaaS</b> for client organizations, and I build the <b>integrations, Power Platform apps, and scripts</b> that replace manual work. B.S. in Software Engineering from San Jose State.</p>
+  <div class="cta">
+    <a class="btn primary" href="#work">See my work</a>
+    <a class="btn" href="https://github.com/MarkSaweres">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/mark-saweres-173817172">LinkedIn</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="num">60+</div><div class="lbl">Intune apps packaged from many vendors in under two weeks</div></div>
+    <div class="stat"><div class="num">600+</div><div class="lbl">person organization where my Power Apps facilities app is in production</div></div>
+    <div class="stat"><div class="num">3,170</div><div class="lbl">employee records synced to access groups per run</div></div>
+    <div class="stat"><div class="num">19,600</div><div class="lbl">SharePoint items migrated from classic to modern sites</div></div>
   </div>
 </div></header>
 
+<section id="work"><div class="wrap">
+  <div class="sec-head"><h2>Selected work</h2><p>Client names are left out on purpose.</p></div>
+
+  <article class="case">
+    <div class="meta">
+      <h3>Acquisition cutover</h3>
+      <p class="ctx">Intune · Acquired team moving tenants</p>
+      <div class="result"><div class="num">60+ apps</div><div class="lbl">from many vendors, packaged and tested in under two weeks</div></div>
+      <div class="tags"><span>Intune</span><span>Autopilot</span><span>PowerShell</span><span>PIM</span></div>
+    </div>
+    <div class="body">
+      <h4>Problem</h4>
+      <p>A team of 20 from an acquired company was moving into the parent company's Microsoft 365 tenant on a fixed cutover date, with a 94-entry software list of specialist tools, drivers, and utilities that all had to install silently through Intune.</p>
+      <h4>What I built</h4>
+      <ul>
+        <li>A PowerShell toolkit that detects each installer's engine and builds Intune packages, with install, uninstall, and detection rules, from a single JSON manifest.</li>
+        <li>Silent installs for MSI, InstallShield, NSIS, Inno, WiX bundles, self-extractors, portable apps, and driver INFs, consolidating component rows (for example, 20 rows from one vendor into 6 apps).</li>
+        <li>Every app tested through Company Portal on an Autopilot test machine for silent install, launch, and silent uninstall, working under least-privilege PIM roles.</li>
+      </ul>
+      <h4>Result</h4>
+      <p>60+ apps covering 85 of the 94 entries were ready for Day 1. I also gave the client's security team findings with proven fixes: an attack surface reduction rule blocking plug-ins, a driver blocked by memory integrity with a supported replacement, and a signed driver that only installed after I imported the publisher certificate.</p>
+    </div>
+  
+    <figure class="fig"><p class="swipe">Swipe sideways to see the whole diagram →</p><div class="scroll"><svg class="dg" viewBox="0 0 900 250" role="img" aria-label="A JSON manifest feeds the packaging toolkit, which builds Intune apps. Each app is installed from Company Portal on an Autopilot test PC. Passing apps are ready for Day 1; failing apps are fixed and rebuilt, or reported to the security team as a finding."><defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker></defs><rect class="n" x="20" y="50" width="130" height="56" rx="10"/><text class="t" x="85.0" y="75.0" text-anchor="middle">JSON manifest</text><text class="s" x="85.0" y="92.0" text-anchor="middle">94-entry list</text><rect class="k" x="205" y="50" width="175" height="56" rx="10"/><text class="t" x="292.5" y="75.0" text-anchor="middle">Packaging toolkit</text><text class="s" x="292.5" y="92.0" text-anchor="middle">detects installer engine</text><rect class="n" x="440" y="50" width="130" height="56" rx="10"/><text class="t" x="505.0" y="75.0" text-anchor="middle">Intune</text><text class="s" x="505.0" y="92.0" text-anchor="middle">app + detection rule</text><rect class="n" x="630" y="50" width="150" height="56" rx="10"/><text class="t" x="705.0" y="75.0" text-anchor="middle">Autopilot test PC</text><text class="s" x="705.0" y="92.0" text-anchor="middle">install, launch, uninstall</text><rect class="n" x="820" y="50" width="70" height="56" rx="10"/><text class="t" x="855.0" y="82.5" text-anchor="middle">Day 1</text><rect class="n" x="440" y="176" width="190" height="56" rx="10"/><text class="t" x="535.0" y="201.0" text-anchor="middle">Fix and retest</text><text class="s" x="535.0" y="218.0" text-anchor="middle">or report a finding</text><path class="e" d="M150,78 H203" marker-end="url(#a3)"/><text class="el" x="176" y="70" text-anchor="middle">apps</text><path class="e" d="M380,78 H438" marker-end="url(#a3)"/><text class="el" x="409" y="70" text-anchor="middle">uploads</text><path class="e" d="M570,78 H628" marker-end="url(#a3)"/><text class="el" x="599" y="70" text-anchor="middle">deploys</text><path class="e" d="M780,78 H818" marker-end="url(#a3)"/><text class="el" x="799" y="70" text-anchor="middle">pass</text><path class="e" d="M705,106 V204 H632" marker-end="url(#a3)"/><text class="el" x="715" y="160" text-anchor="start">fails</text><path class="e" d="M440,204 H292 V108" marker-end="url(#a3)"/><text class="el" x="366" y="196" text-anchor="middle">rebuild</text></svg></div><figcaption>Every package went through the same loop: build from the manifest, deploy through Intune, prove install, launch, and uninstall on a test machine, and fix or escalate anything that failed.</figcaption></figure>
+  </article>
+  <article class="case">
+    <div class="meta">
+      <h3>Access that follows the job</h3>
+      <p class="ctx">Automation · HR system to Entra ID</p>
+      <div class="result"><div class="num">3,170</div><div class="lbl">employee records processed per full sync</div></div>
+      <div class="tags"><span>PowerShell</span><span>Microsoft Graph</span><span>REST APIs</span><span>Entra ID</span></div>
+    </div>
+    <div class="body">
+      <h4>Problem</h4>
+      <p>Purchasing roles had to be changed by hand whenever someone was hired, changed jobs, or left, so access depended on a ticket getting filed and worked.</p>
+      <h4>What I built</h4>
+      <ul>
+        <li>A sync that pulls the employee roster from the HR system's REST API and assigns each person to Entra ID security groups by job title, status, and supervisor.</li>
+        <li>Those groups drive purchasing roles, so the right access lands automatically, and inactive or terminated staff are removed on the next run.</li>
+        <li>App-only Microsoft Graph auth through a dedicated Entra app registration, retry with backoff when Graph throttles, an exception list for HR edge cases, and log rotation.</li>
+      </ul>
+      <h4>Result</h4>
+      <p>Joiners, movers, and leavers are handled by the sync instead of tickets, so purchasing access stays in step with the HR record.</p>
+    </div>
+  
+    <figure class="fig"><p class="swipe">Swipe sideways to see the whole diagram →</p><div class="scroll"><svg class="dg" viewBox="0 0 900 270" role="img" aria-label="The sync pulls the roster from the HR system&#x27;s REST API, decides for each person whether they joined, moved, or left, and updates Entra ID groups through Microsoft Graph. Those groups set each person&#x27;s role in the purchasing system."><defs><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker></defs><rect class="n" x="20" y="118" width="150" height="56" rx="10"/><text class="t" x="95.0" y="143.0" text-anchor="middle">HR system</text><text class="s" x="95.0" y="160.0" text-anchor="middle">REST API roster</text><rect class="k" x="240" y="118" width="180" height="56" rx="10"/><text class="t" x="330.0" y="143.0" text-anchor="middle">PowerShell sync</text><text class="s" x="330.0" y="160.0" text-anchor="middle">title, status, supervisor</text><rect class="n" x="490" y="38" width="170" height="48" rx="10"/><text class="t" x="575.0" y="59.0" text-anchor="middle">Joiner</text><text class="s" x="575.0" y="76.0" text-anchor="middle">added to group</text><rect class="n" x="490" y="122" width="170" height="48" rx="10"/><text class="t" x="575.0" y="143.0" text-anchor="middle">Mover</text><text class="s" x="575.0" y="160.0" text-anchor="middle">switched groups</text><rect class="n" x="490" y="206" width="170" height="48" rx="10"/><text class="t" x="575.0" y="227.0" text-anchor="middle">Leaver</text><text class="s" x="575.0" y="244.0" text-anchor="middle">removed</text><rect class="n" x="720" y="98" width="165" height="48" rx="10"/><text class="t" x="802.5" y="119.0" text-anchor="middle">Entra ID groups</text><text class="s" x="802.5" y="136.0" text-anchor="middle">updated via Graph</text><rect class="n" x="720" y="206" width="165" height="48" rx="10"/><text class="t" x="802.5" y="227.0" text-anchor="middle">Purchasing system</text><text class="s" x="802.5" y="244.0" text-anchor="middle">role per group</text><path class="e" d="M170,146 H238" marker-end="url(#a2)"/><text class="el" x="204" y="138" text-anchor="middle">pulls</text><path class="e" d="M420,138 L488,66" marker-end="url(#a2)"/><path class="e" d="M420,146 H488" marker-end="url(#a2)"/><path class="e" d="M420,154 L488,226" marker-end="url(#a2)"/><path class="e" d="M660,62 L718,114" marker-end="url(#a2)"/><path class="e" d="M660,146 L718,124" marker-end="url(#a2)"/><path class="e" d="M660,230 L718,136" marker-end="url(#a2)"/><path class="e" d="M802,146 V204" marker-end="url(#a2)"/><text class="el" x="812" y="180" text-anchor="start">sets role</text></svg></div><figcaption>One run sorts every employee into joiner, mover, or leaver by job title, status, and supervisor, then updates the Entra ID groups that drive purchasing roles.</figcaption></figure>
+  </article>
+  <article class="case">
+    <div class="meta">
+      <h3>Facilities management app</h3>
+      <p class="ctx">Power Apps · Nonprofit client</p>
+      <div class="result"><div class="num">In production</div><div class="lbl">for a 600+ person organization, without per-user premium licenses</div></div>
+      <div class="tags"><span>Power Apps</span><span>Power Automate</span><span>Microsoft Graph</span><span>Python</span><span>Entra ID</span></div>
+    </div>
+    <div class="body">
+      <h4>Problem</h4>
+      <p>Facilities data lived in flat SharePoint lists. Staff needed one place for compliance dates, tickets, and emergency documents, where each person sees only their own facilities and role, without buying premium licenses for 600+ people.</p>
+      <h4>What I built</h4>
+      <ul>
+        <li>A canvas app with five roles, resolved from Entra security groups through a flow that calls Microsoft Graph.</li>
+        <li>A searchable facility gallery with eight tabs per facility, from finance and vendors to files, programs, and compliance.</li>
+        <li>A broker pattern: flows run under a service account, so users never get direct access to the lists, and a mapping list scopes each person to their facilities.</li>
+        <li>A Python service that syncs the HR roster into SharePoint with app-only Graph auth scoped to one site. It upserts records, logs every run, and fails closed if the roster comes back empty.</li>
+        <li>A compliance tab tracking 15 expiration dates with 30, 60, and 90-day reminders.</li>
+        <li>Separate dev, demo, and prod environments with managed solutions and a custom security role.</li>
+      </ul>
+      <h4>Result</h4>
+      <p>The Python sync replaced a per-user premium flow, so the organization avoids premium licensing for 600+ staff. After a live demo to the organization's VPs, the app went into production and is now in the final phase of a five-phase rollout to all staff.</p>
+    </div>
+  
+    <figure class="shots pair">
+      <div class="g">
+        <a href="img/facilities-gallery.webp"><img src="img/facilities-gallery.webp" width="1903" height="836" loading="lazy" alt="Facility gallery with search, photo cards, and links to the console, IT ticketing form, and maintenance form"></a>
+        <a href="img/facilities-files.webp"><img src="img/facilities-files.webp" width="1911" height="841" loading="lazy" alt="Facility page with eight tabs, showing the Files tab with document folders"></a>
+      </div>
+      <figcaption>Real screens from the app. Facility names, addresses, photos, and client branding are blurred.</figcaption>
+    </figure>
+    <figure class="fig"><p class="swipe">Swipe sideways to see the whole diagram →</p><div class="scroll"><svg class="dg" viewBox="0 0 900 364" role="img" aria-label="Staff use the canvas app, which calls Power Automate flows running as a service account. The flows check the user&#x27;s role in Entra ID through Microsoft Graph, then read and write SharePoint scoped to that user&#x27;s facilities. A Python sync pulls the HR roster and upserts it into SharePoint."><defs><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker></defs><rect class="zone" x="408" y="10" width="480" height="256" rx="14"/><text class="zl" x="422" y="28" text-anchor="start">Only service identities touch the data</text><rect class="n" x="20" y="40" width="120" height="56" rx="10"/><text class="t" x="80.0" y="65.0" text-anchor="middle">Staff</text><text class="s" x="80.0" y="82.0" text-anchor="middle">phone or browser</text><rect class="n" x="200" y="40" width="150" height="56" rx="10"/><text class="t" x="275.0" y="65.0" text-anchor="middle">Canvas app</text><text class="s" x="275.0" y="82.0" text-anchor="middle">role-aware screens</text><rect class="k" x="420" y="40" width="170" height="56" rx="10"/><text class="t" x="505.0" y="65.0" text-anchor="middle">Power Automate</text><text class="s" x="505.0" y="82.0" text-anchor="middle">runs as service account</text><rect class="n" x="700" y="40" width="170" height="56" rx="10"/><text class="t" x="785.0" y="65.0" text-anchor="middle">SharePoint lists</text><text class="s" x="785.0" y="82.0" text-anchor="middle">facilities, compliance</text><rect class="n" x="420" y="196" width="170" height="56" rx="10"/><text class="t" x="505.0" y="221.0" text-anchor="middle">Entra ID groups</text><text class="s" x="505.0" y="238.0" text-anchor="middle">Admin, Manager, ...</text><rect class="n" x="700" y="196" width="170" height="56" rx="10"/><text class="t" x="785.0" y="221.0" text-anchor="middle">Python sync</text><text class="s" x="785.0" y="238.0" text-anchor="middle">app-only, one site</text><rect class="n" x="700" y="296" width="170" height="56" rx="10"/><text class="t" x="785.0" y="321.0" text-anchor="middle">HR system API</text><text class="s" x="785.0" y="338.0" text-anchor="middle">employee roster</text><path class="e" d="M140,68 H198" marker-end="url(#a1)"/><text class="el" x="170" y="60" text-anchor="middle">opens</text><path class="e" d="M350,68 H418" marker-end="url(#a1)"/><text class="el" x="379" y="60" text-anchor="middle">request</text><path class="e" d="M590,68 H698" marker-end="url(#a1)"/><text class="el" x="644" y="60" text-anchor="middle">scoped reads/writes</text><path class="e" d="M505,96 V194" marker-end="url(#a1)"/><text class="el" x="515" y="150" text-anchor="start">role check</text><text class="el" x="515" y="164" text-anchor="start">via Graph</text><path class="e" d="M785,196 V98" marker-end="url(#a1)"/><text class="el" x="775" y="140" text-anchor="end">upserts roster</text><text class="el" x="775" y="154" text-anchor="end">fails closed if empty</text><path class="e" d="M785,296 V254" marker-end="url(#a1)"/><text class="el" x="775" y="280" text-anchor="end">pulls</text></svg></div><figcaption>Staff never get direct access to the lists. Every read and write goes through flows running as a service account, and the HR roster arrives through a separate Python sync with access to one site only.</figcaption></figure>
+  </article>
+  <article class="case">
+    <div class="meta">
+      <h3>Case management app</h3>
+      <p class="ctx">Power Apps · Apprenticeship program</p>
+      <div class="result"><div class="num">150+</div><div class="lbl">apprentices tracked by 11 career navigators</div></div>
+      <div class="tags"><span>Power Apps</span><span>SharePoint</span><span>Entra ID</span><span>ALM</span></div>
+    </div>
+    <div class="body">
+      <h4>Problem</h4>
+      <p>A program with 11 career navigators needed one place to track 150+ apprentices: their status, meeting notes, and course progress, with a meeting summary that could be shared with the program's corporate partner.</p>
+      <h4>What I built</h4>
+      <ul>
+        <li>A six-screen canvas app over four SharePoint lists, starting from a roster that filters by navigator and status and flags each apprentice red, yellow, or green.</li>
+        <li>An apprentice page that brings together meeting notes and course enrollments, with dated progress updates for each course.</li>
+        <li>Structured meeting notes with separate personal, academic, and professional updates, plus a summary meant for the partner.</li>
+        <li>Dev and Prod environments with managed solution releases. I chose solution export and import over Pipelines, because Pipelines needs Managed Environments, which would have meant a standalone Power Apps license for every user.</li>
+        <li>Access through Entra security groups, verified on partner-issued laptops.</li>
+      </ul>
+      <h4>Result</h4>
+      <p>The app went live in production in late September 2026 for the program's career navigators.</p>
+    </div>
+    <figure class="shots">
+      <div class="g">
+        <a href="img/case-mgmt-list.webp"><img src="img/case-mgmt-list.webp" width="1382" height="775" loading="lazy" alt="Apprentice roster with search, navigator and status filters, and red, yellow, and green status bars"></a>
+        <a href="img/case-mgmt-apprentice.webp"><img src="img/case-mgmt-apprentice.webp" width="1384" height="778" loading="lazy" alt="Apprentice page showing meeting notes and course enrollments"></a>
+        <a href="img/case-mgmt-meeting-note.webp"><img src="img/case-mgmt-meeting-note.webp" width="1385" height="776" loading="lazy" alt="Meeting note form with summary, personal, academic, and professional updates"></a>
+      </div>
+      <figcaption>Real screens from the app. Apprentice names, notes, and client branding are blurred.</figcaption>
+    </figure>
+  </article>
+</div></section>
+
+<section id="more"><div class="wrap">
+  <div class="sec-head"><h2>More work</h2></div>
+  <div class="grid pairs">
+    <div class="card"><h3>Phishing-resistant sign-in</h3><p>Set up Okta Device Trust across Mac and Windows with Okta as the SCEP certificate authority, then enforced YubiKey FIDO2 keys through Okta sign-on policies, Entra Conditional Access, and Google Workspace.</p><div class="tags"><span>Okta</span><span>FIDO2</span><span>Intune</span></div></div>
+    <div class="card"><h3>SharePoint migration toolkit</h3><p>Migrated about 63 classic areas and 19,600 items to modern hub sites with a config-driven PnP PowerShell toolkit, and restored a 954-item production library after an accidental move.</p><div class="tags"><span>SharePoint</span><span>PnP PowerShell</span></div></div>
+    <div class="card"><h3>Endpoint security rollout</h3><p>Moved a client fleet from Trend Micro to SentinelOne, packaged Twingate and Cisco Secure Client for macOS and Windows, and fixed a fleet-wide false install failure.</p><div class="tags"><span>SentinelOne</span><span>Twingate</span><span>macOS</span></div></div>
+    <div class="card"><h3>Conflicts portal</h3><p>Built and maintain a conflict-checking app for a law firm on Dataverse, including a migration to new tables loaded through a dataflow.</p><div class="tags"><span>Power Apps</span><span>Dataverse</span></div></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <div class="sec-head"><h2>Code projects</h2><p>Personal and school work on GitHub.</p></div>
+  <div class="grid pairs">
+    <div class="card"><h3>AI Shorts pipeline</h3><p>Python pipeline that writes a story with an LLM API, narrates it with word-timed captions, adds stock footage, and uploads the finished Short to YouTube every day on a GitHub Actions schedule.</p><div class="tags"><span>Python</span><span>LLM APIs</span><span>YouTube API</span></div><a class="more" href="https://github.com/MarkSaweres/content-uploader">View code →</a></div>
+    <div class="card"><h3>Plated</h3><p>.NET MAUI app for Android and iOS that looks up license plates, with Firebase Auth, Firestore, and on-device OCR. In progress.</p><div class="tags"><span>C#</span><span>.NET MAUI</span><span>Firebase</span></div><a class="more" href="https://github.com/MarkSaweres/Plated">View code →</a></div>
+    <div class="card"><h3>Starbucks ordering system</h3><p>Spring Boot REST API with MySQL behind a Kong API gateway and HAProxy, deployed from Docker Compose to Google Kubernetes Engine.</p><div class="tags"><span>Java</span><span>Spring Boot</span><span>Kubernetes</span></div><a class="more" href="https://github.com/MarkSaweres/Starbucks">View code →</a></div>
+    <div class="card"><h3>Projectile detection</h3><p>Raspberry Pi and OpenCV prototype that tracks a target object in a live camera feed, built for my senior project.</p><div class="tags"><span>Python</span><span>OpenCV</span><span>Raspberry Pi</span></div><a class="more" href="https://github.com/MarkSaweres/DIPS">View code →</a></div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="two">
+    <div class="panel">
+      <h3>Skills</h3>
+      <dl>
+        <dt>Identity and SaaS</dt><dd>Okta, Entra ID, Google Workspace, Microsoft 365, Slack, Jira, Confluence, Zoom</dd>
+        <dt>Devices and security</dt><dd>Intune, Autopilot, macOS, Windows, iOS, SentinelOne, Defender, Twingate, Cisco Meraki</dd>
+        <dt>Automation</dt><dd>Python, PowerShell, Microsoft Graph, REST APIs, Power Automate, Power Apps, Zapier, Claude Code</dd>
+        <dt>Software</dt><dd>C#, Java, JavaScript, SQL, React, Spring Boot, Docker, Kubernetes, Git, GitHub Actions</dd>
+      </dl>
+    </div>
+    <div class="panel">
+      <h3>Experience</h3>
+      <ul class="exp">
+        <li><b>System Administrator, PC Professional</b><span>Oakland · 2024 to present</span></li>
+        <li><b>Software Engineer Intern, Trvlst</b><span>San Francisco · 2023 to 2024</span></li>
+        <li><b>IT Specialist, All Care Family Dental</b><span>Pittsburg, CA · 2023</span></li>
+        <li><b>B.S. Software Engineering, San Jose State University</b><span>Fundamentals of Cybersecurity Certificate</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
 <footer id="contact"><div class="wrap">
-  <span>Happy to walk through any of my work in detail.</span>
+  <span>Happy to walk through any of this work in detail.</span>
   <span><a href="mailto:marksaweres1@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/mark-saweres-173817172">LinkedIn</a> · <a href="https://github.com/MarkSaweres">GitHub</a></span>
 </div></footer>
 
